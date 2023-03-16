@@ -1,4 +1,4 @@
-import axios from "axios"
+import apiFetch from "../axios/config"
 import { useEffect, useState } from "react"
 import {Link} from 'react-router-dom'
 import './Home.css'
@@ -11,7 +11,7 @@ const Home = () => {
 
     try {
       
-      const response = await axios.get("http://localhost:8080/food");
+      const response = await apiFetch.get("/food");
       const data = response.data;
       setPost(data)
 
