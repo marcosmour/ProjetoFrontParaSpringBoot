@@ -13,7 +13,8 @@ const Home = () => {
       
       const response = await axios.get("http://localhost:8080/food");
       const data = response.data;
-      console.log(data)
+      setPost(data)
+
     } catch (error) {
       console.log(error)
     }
@@ -26,7 +27,19 @@ const Home = () => {
 
 
   return (
-    <div>Home</div>
+    <div>
+      <h1>Ultimos Posts</h1>
+      {post.length === 0 ? (<p>Carregando...</p>) : (
+        post.map((post) => (
+          <div key={post.id}>
+            <h2>{post.title}</h2>
+            <p>{post.image}</p>
+            <p>{post.price}</p>
+            <Link to={`/post/${post.id}`} className='btn'>Ler mais</Link>
+          </div>
+        ))
+      )}
+    </div>
   )
 }
 
