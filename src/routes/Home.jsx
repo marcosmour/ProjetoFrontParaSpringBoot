@@ -27,11 +27,11 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className="home">
       <h1>Ultimos Posts</h1>
       {post.length === 0 ? (<p>Carregando...</p>) : (
         post.map((post) => (
-          <div key={post.id}>
+          <div key={post.id} className='post'>
             <h2>{post.title}</h2>
             <p>{post.image}</p>
             <p>{post.price}</p>
